@@ -32,7 +32,7 @@ function ResiliantDownloader() {
                 reject("Failed to validate files: " + checkResult);
             }
             var download = function (files) {
-                if (files === 0) {
+                if (files.length === 0) {
                     reject("Failed to download files.");
                 }
                 var file = files.shift();
