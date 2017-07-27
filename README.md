@@ -1,4 +1,4 @@
-# ResiliantDownloader
+# ResilientDownloader
  npm install resilient-downloader
 
 # How it works
@@ -8,7 +8,7 @@ This is not downloading all the files. It stop at the first download success.
 
 # Usage
 
-var downloader = require('resilient-downloader');
+`var downloader = require('resilient-downloader');
 
 var files = [
     {bucket: "my-bucket", region: "us-east-1", key: ""foobar},
@@ -19,17 +19,17 @@ var files = [
 downloader.downloadInMemory(files, function(err, data){
     /*data*/
     /*"file content foo bar"*/
-});
+});`
 
  OR
 
-downloader.downloadInMemory(files).then(function(data) {
+`downloader.downloadInMemory(files).then(function(data) {
     /*data*/
     /*"file content foo bar"*/
 }, function(error){
     /*error*/
     /*"Error reason"*/
-});
+});`
 
 // TODO
 unit testing
