@@ -1,26 +1,13 @@
 {
-  "name": "resiliant-downloader",
-  "version": "0.0.1",
-  "description": "Resiliant downloader\u001b[1;5D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[Cs3\u001b[D\u001b[C \u001b[2~downlkoader\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C\u001b[oader\u001b[2~\u001b[3~",
-  "main": "index.js",
-  "scripts": {
+  "name": "resilient-downloader", "version": "0.0.1", "description": "Resiliant downloader for AWS S3", "main": "index.js", "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Noxs/ResiliantDownloader.git"
-  },
-  "keywords": [
-    "s3",
-    "downloader"
-  ],
-  "author": "timothee@fromsmash.com",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Noxs/ResiliantDownloader/issues"
-  },
-  "homepage": "https://github.com/Noxs/ResiliantDownloader#readme",
-  "dependencies": {
+  }, "repository": {
+    "type": "git", "url": "git+https://github.com/Noxs/ResiliantDownloader.git"
+  }, "keywords": [
+    "s3", "downloader"
+  ], "author": "timothee@fromsmash.com", "license": "MIT", "bugs": {
+    "url": "https://github.com/Noxs/ResilientDownloader/issues"
+  }, "homepage": "https://github.com/Noxs/ResilientDownloader#readme", "dependencies": {
     "aws-sdk": "^2.91.0"
   }
 }
