@@ -3,7 +3,7 @@ var aws = require("aws-sdk");
 function ResiliantDownloader() {
     var that = this;
     var checkFiles = function (files) {
-        if (Array.isArray(files)) {
+        if (Array.isArray(files) === false) {
             return "invalid data, files must be an array.";
         }
         if (files.length === 0) {
