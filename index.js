@@ -29,21 +29,29 @@ function ResiliantDownloader() {
         return new Promise(function (resolve, reject) {
             var checkResult = checkFiles(files);
             if (checkResult !== true) {
-                reject("Failed to validate files: " + checkResult);
+                reject(new Error("Failed to validate files: " + checkResult));
             }
+            var errors = [];
             var download = function (files) {
-                if (files.length === 0) {
-                    reject("Failed to download files.");
+                if (files.length <= 0) {
+                    var error = new Error("Failed to download files.");
+                    error.errors = errors;
+                    reject(error);
+                } else {
+                    var file = files.shift();
+                    var s3 = new aws.S3({region: file.region});
+                    s3.getObject({Bucket: file.bucket, Key: file.key}, function (err, data) {
+                        if (err) {
+                            err.targetBucket = file.bucket;
+                            err.targetKey = file.key;
+                            err.targetRegion = file.region;
+                            errors.push(err);
+                            download(files);
+                        } else {
+                            resolve(data.Body);
+                        }
+                    });
                 }
-                var file = files.shift();
-                var s3 = new aws.S3({region: file.region});
-                s3.getObject({Bucket: file.bucket, Key: file.key}, function (err, data) {
-                    if (err) {
-                        download(files);
-                    } else {
-                        resolve(data.Body);
-                    }
-                });
             };
             download(files);
         });
