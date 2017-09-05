@@ -29,11 +29,11 @@ function ResiliantDownloader() {
         return new Promise(function (resolve, reject) {
             var checkResult = checkFiles(files);
             if (checkResult !== true) {
-                reject("Failed to validate files: " + checkResult);
+                reject(new Error("Failed to validate files: " + checkResult));
             }
             var download = function (files) {
                 if (files.length === 0) {
-                    reject("Failed to download files.");
+                    reject(new Error("Failed to download files."));
                 }
                 var file = files.shift();
                 var s3 = new aws.S3({region: file.region});
