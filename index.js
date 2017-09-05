@@ -42,6 +42,9 @@ function ResiliantDownloader() {
                     var s3 = new aws.S3({region: file.region});
                     s3.getObject({Bucket: file.bucket, Key: file.key}, function (err, data) {
                         if (err) {
+                            err.targetBucket = file.bucket;
+                            err.targetKey = file.key;
+                            err.targetRegion = file.region;
                             errors.push(err);
                             download(files);
                         } else {
